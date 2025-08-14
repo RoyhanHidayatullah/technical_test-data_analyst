@@ -68,7 +68,3 @@
 2. **Run SQL Queries**
    - Connect to your PostgreSQL database using a tool like Laragon.
    - Execute the SQL queries provided in the `queries.sql` file.
-
-2. **Run SQL Queries**
-   - Connect to your PostgreSQL database using a tool like pgAdmin or command line.
-   - Execute the SQL queries provided in the `queries.sql` file.
