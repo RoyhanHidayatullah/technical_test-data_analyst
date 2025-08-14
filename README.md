@@ -68,3 +68,6 @@
 2. **Run SQL Queries**
    - Connect to your PostgreSQL database using a tool like Laragon.
    - Execute the SQL queries provided in the `queries.sql` file.
+
+## Looker Studio Dashboard Link
+https://lookerstudio.google.com/s/oZEOM21eicE
