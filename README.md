@@ -45,17 +45,17 @@
      CREATE TABLE cards (
          card_id INT PRIMARY KEY,
          client_id INT REFERENCES users(id),
-          card_brand VARCHAR(20),
-          card_type VARCHAR(20),
-          card_number BIGINT,
-          expires VARCHAR(10),
-          cvv INT,
-          has_chip BOOLEAN,
-          cards_issued INT,
-          credit_limit NUMERIC,
-          acct_open_date VARCHAR(10),
-          year_pin_last_changed INT,
-          card_on_dark_web BOOLEAN
+         card_brand VARCHAR(20),
+         card_type VARCHAR(20),
+         card_number BIGINT,
+         expires VARCHAR(10),
+         cvv INT,
+         has_chip BOOLEAN,
+         cards_issued INT,
+         credit_limit NUMERIC,
+         acct_open_date VARCHAR(10),
+         year_pin_last_changed INT,
+         card_on_dark_web BOOLEAN
      );
      ```
    - Load CSV files into the respective tables using:
