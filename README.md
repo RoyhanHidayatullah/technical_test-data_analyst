@@ -58,12 +58,7 @@
          card_on_dark_web BOOLEAN
      );
      ```
-   - Load CSV files into the respective tables using:
-     ```sql
-     COPY users FROM '/path/to/user_data.csv' DELIMITER ',' CSV HEADER;
-     COPY transactions FROM '/path/to/transaction_data.csv' DELIMITER ',' CSV HEADER;
-     COPY cards FROM '/path/to/card_data.csv' DELIMITER ',' CSV HEADER;
-     ```
+   - Import CSV files into the respective tables.
 
 2. **Run SQL Queries**
    - Connect to your PostgreSQL database using a tool like Laragon.
