@@ -88,19 +88,29 @@ ORDER BY hour_of_day;
 -- Query 7: Categorize users by credit score and analyze income
 -- Objective: To assess credit health and its relationship with income.
 -- Supports lending decisions and customer segmentation.
-SELECT 
-    CASE 
-        WHEN credit_score >= 750 THEN 'Excellent (750+)'
-        WHEN credit_score >= 700 THEN 'Good (700-749)'
-        WHEN credit_score >= 650 THEN 'Fair (650-699)'
-        WHEN credit_score >= 600 THEN 'Poor (600-649)'
-        ELSE 'Very Poor (<600)'
-    END AS credit_score_category,
+WITH UserCategories AS (
+    SELECT
+        yearly_income,
+        credit_score,
+        CASE
+            WHEN credit_score >= 750 THEN 'Excellent (750+)'
+            WHEN credit_score >= 700 THEN 'Good (700-749)'
+            WHEN credit_score >= 650 THEN 'Fair (650-699)'
+            WHEN credit_score >= 600 THEN 'Poor (600-649)'
+            ELSE 'Very Poor (<600)'
+        END AS credit_score_category
+    FROM
+        users
+)
+SELECT
+    credit_score_category,
     COUNT(*) AS user_count,
     ROUND(AVG(yearly_income), 2) AS avg_income
-FROM users
-GROUP BY credit_score_category
-ORDER BY 
+FROM
+    UserCategories
+GROUP BY
+    credit_score_category
+ORDER BY
     CASE credit_score_category
         WHEN 'Excellent (750+)' THEN 1
         WHEN 'Good (700-749)' THEN 2
@@ -152,4 +162,5 @@ GROUP BY u.id, u.current_age, u.gender, u.credit_score
 HAVING COUNT(t.id) > 10 AND SUM(t.amount) > 5000
 ORDER BY total_spent DESC
 LIMIT 20;
+
 
